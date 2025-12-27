@@ -13,17 +13,19 @@
             --text: #d1f1ff;
             --border: #126782;
             --shadow: #001524;
+            --whale-color: rgba(88, 239, 255, 0.15); /* Subtle whale color */
         }
 
-        /* --- Background & Bubbles --- */
+        /* --- Background, Bubbles & Whales --- */
         body {
             background: linear-gradient(180deg, var(--ocean-dark), var(--ocean-mid));
             color: var(--text);
             margin: 0; padding: 0;
             min-height: 100vh;
-            overflow-x: hidden;
-            font-family: 'VT323', monospace; /* Readability for long bio */
+            overflow-x: hidden; /* Prevents horizontal scrollbar from swimming whales */
+            font-family: 'VT323', monospace;
             font-size: 1.3rem;
+            position: relative;
         }
 
         /* Bubble Animation */
@@ -43,18 +45,72 @@
             100% { transform: translateY(-110vh) translateX(-20px); opacity: 0; }
         }
 
+        /* CSS Pixel Whale */
+        .whale {
+            position: absolute;
+            left: -150px; /* Start off-screen */
+            z-index: -2; /* Behind bubbles and content */
+            opacity: 0;
+            /* This creates the pixel whale shape using shadows */
+            width: 10px; height: 10px;
+            background: transparent;
+            color: var(--whale-color);
+            box-shadow: 
+                20px 0, 30px 0, 40px 0,
+                10px 10px, 20px 10px, 30px 10px, 40px 10px, 50px 10px,
+                0px 20px, 10px 20px, 20px 20px, 30px 20px, 40px 20px, 50px 20px, 60px 20px,
+                10px 30px, 20px 30px, 30px 30px, 40px 30px, 50px 30px,
+                60px 10px, 70px 0px; /* Tail */
+            animation: swim infinite linear;
+        }
+
+        /* Whale Variations */
+        .whale-1 { top: 15%; animation-duration: 45s; transform: scale(1.5); }
+        .whale-2 { top: 40%; animation-duration: 35s; animation-delay: -15s; transform: scale(1); opacity: 0.4; }
+        .whale-3 { top: 70%; animation-duration: 55s; animation-delay: -5s; transform: scale(2); opacity: 0.2; }
+
+        @keyframes swim {
+            0% { left: -200px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { left: 110vw; opacity: 0; } /* Swim off right side */
+        }
+
+
         .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; position: relative; }
 
-        /* --- Typography --- */
-        h1, h2, h3 { font-family: 'Press Start 2P', cursive; text-transform: uppercase; color: var(--accent); }
-        h1 { font-size: 1.8rem; text-align: center; text-shadow: 4px 4px 0px var(--shadow); margin-bottom: 5px; }
+        /* --- Header & Logo --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-right: 20px;
+            filter: drop-shadow(0 0 5px var(--accent));
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-size: 1.8rem;
+            text-shadow: 4px 4px 0px var(--shadow);
+            margin: 0;
+        }
+
+        .header-info { text-align: center; margin-bottom: 50px; font-size: 1.1rem; }
+        .header-info a { color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); }
+
+        /* --- Typography & Sections --- */
+        h2, h3 { font-family: 'Press Start 2P', cursive; text-transform: uppercase; color: var(--accent); }
         h2 { font-size: 1.2rem; border-bottom: 4px solid var(--border); padding-bottom: 10px; margin-top: 60px; }
         h3 { font-size: 0.9rem; margin-top: 0; }
 
-        .header-info { text-align: center; margin-bottom: 40px; font-size: 1.1rem; }
-        .header-info a { color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); }
-
-        /* --- Sections --- */
         .bio-box {
             background: rgba(2, 44, 67, 0.8);
             border: 4px solid var(--border);
@@ -99,6 +155,13 @@
 
         footer { text-align: center; margin-top: 80px; padding-bottom: 40px; border-top: 4px solid var(--border); pt: 40px; }
         footer a { color: var(--accent); text-decoration: none; margin: 0 15px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; }
+        
+        /* Responsive adjustment for logo on small screens */
+        @media (max-width: 600px) {
+            .logo-container { flex-direction: column; }
+            .logo { margin-right: 0; margin-bottom: 15px; }
+            h1 { font-size: 1.4rem; text-align: center; }
+        }
 
     </style>
 </head>
@@ -110,9 +173,16 @@
     <div class="bubble" style="width: 30px; height: 30px; left: 90%; animation-delay: 1s;"></div>
     <div class="bubble" style="width: 25px; height: 25px; left: 50%; animation-delay: 6s;"></div>
 
+    <div class="whale whale-1"></div>
+    <div class="whale whale-2"></div>
+    <div class="whale whale-3"></div>
+
     <div class="container">
         <header>
-            <h1>Aditya Rao (Addy) Kaveti</h1>
+            <div class="logo-container">
+                <img src="logo.png" alt="PeakWhale Logo" class="logo">
+                <h1>Aditya Rao (Addy) Kaveti</h1>
+            </div>
             <div class="header-info">
                 <p>📧 <a href="mailto:ad.rkav@gmail.com">ad.rkav@gmail.com</a> | 📍 Everett, MA</p>
                 <p><a href="https://www.linkedin.com/in/adrkv/" target="_blank">LinkedIn Profile</a></p>
