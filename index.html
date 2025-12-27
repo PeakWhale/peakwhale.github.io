@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeakWhale | AI Solution Architect Portfolio</title>
+    <style>
+        :root { --bg: #0d1117; --card-bg: #161b22; --text: #c9d1d9; --accent: #58a6ff; --border: #30363d; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { color: var(--accent); font-size: 2.5rem; margin: 0; }
+        .subtitle { font-size: 1.2rem; opacity: 0.8; }
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 12px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .tag { display: inline-block; background: #238636; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; margin-right: 8px; font-weight: bold; }
+        .tag-sec { background: #8957e5; }
+        a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        footer { margin-top: 60px; font-size: 0.8rem; opacity: 0.6; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PeakWhale</h1>
+            <p class="subtitle"><strong>AI Solution Architect & Cybersecurity Specialist</strong></p>
+            <p>M.S. Cybersecurity, NYU Tandon & Stern | Based in Everett, MA</p>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I specialize in the architecture of autonomous AI systems and agentic workflows. 
+                With over five years of experience, I bridge the gap between secure cybersecurity infrastructure 
+                and cutting-edge AI orchestration. 
+                My focus is on building resilient, industrial-grade AI solutions that drive optimization and predictive maintenance.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>AI Projects Portfolio</h2>
+            <div class="project-grid">
+                
+                <div class="card">
+                    <h3>Orca-Fin: Financial Intelligence System</h3>
+                    <p>An autonomous financial intelligence agent built using <strong>LangGraph</strong> and <strong>Model Context Protocol (MCP)</strong>. This system manages complex, multi-agent coordination for financial analysis.</p>
+                    <div style="margin-bottom: 15px;">
+                        <span class="tag">LangGraph</span> <span class="tag">MCP</span> <span class="tag">Python</span>
+                    </div>
+                    <a href="https://github.com/PeakWhale/orca-fin" target="_blank">View on GitHub →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Adaptive AI Protection System (Patent Pending)</h3>
+                    <p>Designed an AI-driven protection framework for the power grid, focusing on secure implementation and predictive maintenance in industrial environments.</p>
+                    <div style="margin-bottom: 15px;">
+                        <span class="tag tag-sec">Industrial AI</span> <span class="tag tag-sec">Cybersecurity</span> <span class="tag tag-sec">Predictive Maintenance</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 PeakWhale LLC | Built with GitHub Pages</p>
+        </footer>
+    </div>
+</body>
+</html>
