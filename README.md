@@ -1,7 +1,7 @@
-# Addy Kaveti — Portfolio
+# Portfolio redirect
 
-Personal portfolio published at [peakwhale.com](https://peakwhale.com/).
+The portfolio is now at [adrkv.github.io](https://adrkv.github.io/).
 
-Static HTML and CSS hosted on GitHub Pages. PeakWhale identifies the open-source project collection within the portfolio.
+This page keeps existing portfolio links working. JavaScript redirects to the new site while preserving the query string and section fragment. A meta refresh and visible link provide fallbacks.
 
-To preview locally, serve this directory with a static web server. The production page includes canonical and social-sharing metadata.
+Keep the existing repository's `CNAME` file and GitHub Pages custom-domain configuration in place. Only deploy this redirect after verifying the new portfolio is live. This folder intentionally does not contain a replacement `CNAME`.
